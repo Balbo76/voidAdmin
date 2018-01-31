@@ -1,0 +1,42 @@
+<section id="wrapper"
+         [class.navbar-fixed]="navbarFixed"
+         [class.sidebar-compressed]="sidebarCompressed"
+         [class.sidebar-fixed]="sidebarFixed"
+         [class.toggled]="toggled"
+         [class.container]="!containerFluid"
+         [class.container-fluid]="containerFluid">
+
+  <app-navbar #navbar (toggler)="toggleSidebar($event);" [navbarFixed]="navbarFixed" [containerFluid]="containerFluid" [toggled]="toggled"></app-navbar>
+
+  <nav id="sidebar-wrapper">
+    <app-sidebar #sidebar (toggler)="toggleSidebar($event);" [sidebarFixed]="sidebarFixed" [sidebarCompressed]="sidebarCompressed"></app-sidebar>
+  </nav>
+
+  <section id="content-wrapper" class="">
+    <app-breadcrumbs #breadcrumbs></app-breadcrumbs>
+    <router-outlet></router-outlet>
+    <footer>Copyright qua e la</footer>
+  </section>
+
+
+  <nav>
+    <app-back-to-top *ngIf="backToTop == true"></app-back-to-top>
+  </nav>
+
+  <aside>
+    <app-float-options
+      [navbarFixed]="navbarFixed"
+      [containerFluid]="containerFluid"
+      [sidebarFixed]="sidebarFixed"
+      [sidebarCompressed]="sidebarCompressed"
+      [backToTop]="backToTop"
+
+      (togglenavbarfixed)="clickToggleNavbarFixed($event)"
+      (togglebacktotop)="clickToggleBackToTop($event)"
+      (togglecompressed)="clickToggleCompressed($event)"
+      (togglecontainer)="clickToggleContainer($event)"
+      (togglesidebarfixed)="clickToggleSidebarFixed($event)">
+    </app-float-options>
+  </aside>
+
+</section>

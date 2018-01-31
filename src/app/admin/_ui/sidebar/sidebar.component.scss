@@ -1,0 +1,289 @@
+@import "~variables.scss";
+
+.sidebar {
+  width: $sidebar-size;
+  box-sizing: border-box;
+  margin: 0px 0px;
+
+  a:hover, a:active, a:focus {
+    text-decoration: none;
+  }
+
+  .sidebar-header {
+    margin: 0px 0px;
+    text-align: center;
+    padding-top: 15px;
+    .user-info {
+      margin: 0px 0px;
+      .user-image {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        border: 5px solid $navbar-inverse-bg;
+
+      }
+      .user-buttons {
+        display: block;
+        background-color: #eeeeee;
+      }
+    }
+  }
+
+  .sidebar-menu {
+    box-sizing: border-box;
+    list-style-type: none;
+    padding: 0px 5px;
+    //border-top: $sidebar-border;
+    li  {
+      border-bottom: $sidebar-border;
+      min-height: 40px;
+
+      a {
+        display: block;
+        font-size: 16px;
+
+        line-height: 40px;
+        color: #000;
+        i {
+          margin-left: 5px;
+        }
+        span {
+          padding-right: 25px;
+          margin-left: 0px;
+          transition: 0.5s;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        span:after {
+          content: '\00bb';
+          opacity: 0;
+          transition: 0.5s;
+          margin-left: 25px;
+        }
+        .arrow {
+          position: absolute;
+          text-align: left;
+          right: 5px;
+          padding-top: 10px;
+          transition: all 0.5s ease;
+        }
+        .rotate {
+          transform: translate(-10px, 5px) rotate(270deg) ;
+        }
+        .sidebar-submenu {
+          background-color: $sidebar-color;
+          list-style-type: none;
+          line-height: 40px;
+          padding-left: 0px;
+          transition: all 0.5s ease;
+          opacity: 0;
+          visibility: hidden;
+          height: 0px;
+          overflow-y: hidden;
+
+          .submenu-title{
+            display: none;
+          }
+          li {
+            border-top: $sidebar-border;
+            a {
+              padding-left: 20px;
+              color: black;
+              display: block;
+              transition: 0.5s;
+            }
+            a:hover {
+              color: black;
+              text-decoration: none;
+              background-color: lighten($navbar-inverse-bg, 60%);
+              display: block;
+              padding-left: 30px;
+            }
+          }
+        }
+        .sidebar-submenu:first-child {
+          display: none;
+        }
+        .sidebar-submenu.open {
+          visibility: visible;
+          height: auto;
+          opacity: 1;
+        }
+
+      }
+
+      a:hover {
+        color: black;
+        background-color: lighten($navbar-inverse-bg, 40%);
+        a {
+          background-color: $sidebar-color;
+        }
+        span {
+          margin-left: 15px;
+        }
+        span:after {
+          opacity: 1;
+          right: 0;
+          margin-left: 5px;
+        }
+
+        .sidebar-submenu {
+
+
+        }
+      }
+
+      //Search Input
+      #custom-search-input {
+        margin: 2px;
+        padding: 3px;
+        border: solid 1px #E4E4E4;
+        border-radius: 3px;
+        background-color: $sidebar-color;
+        input{
+          padding: 0px 0px;
+          border: 0;
+          box-shadow: none;
+        }
+        button{
+          margin: 2px 0 0 0;
+          background: none;
+          box-shadow: none;
+          border: 0;
+          color: #666666;
+          padding: 0 8px 0 10px;
+          border-left: solid 1px #ccc;
+        }
+        .glyphicon-search {
+          font-size: 16px;
+          line-height: 18px;
+        }
+        .glyphicon-search:hover {
+          font-weight: bolder;
+        }
+      }
+    }
+    > li:first-child {
+      padding: 10px;
+    }
+
+
+
+  }
+
+}
+
+
+@media (min-width: $screen-sm-min) {
+  .sidebar {
+    width: $sidebar-size;
+    height: auto;
+    z-index: 2;
+  }
+
+  .sidebar:hover {
+
+  }
+
+  //Sidebar Fixed
+  .sidebar.fixed {
+    position: fixed;
+  }
+
+  //Sidebar compressed
+  .sidebar.compressed {
+    width: 50px;
+    position: fixed;
+    .sidebar-header {
+      .user-info {
+        padding: 10px 6px;
+        margin-top: 20px;
+        margin-bottom: 0px;
+      }
+      #username {
+        font-size: 8px;
+        overflow: hidden;
+      }
+      a{
+        display: none;
+      }
+    }
+
+    .sidebar-menu {
+      li {
+        a {
+          padding-left: 5px;
+          span {
+            display: none;
+          }
+          .arrow {
+            display: none;
+          }
+          .sidebar-submenu {
+            position: fixed;
+            z-index: 5;
+            margin-left: 38px;
+            margin-top: -45px;
+            background-color: $sidebar-color;
+            padding: 5px;
+            min-width: 200px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 2px 2px 5px #888;
+            .submenu-title{
+              display: block;
+            }
+          }
+          .sidebar-submenu.open {
+            visibility: inherit;
+            height: inherit;
+            opacity: inherit;
+          }
+        }
+        a:hover {
+          .sidebar-submenu {//TODO
+            visibility: visible;
+            height: auto;
+            opacity: 1;
+
+          }
+          .sidebar-submenu:first-child {
+            background-color: $sidebar-submenu-title-color;
+            color: black;
+          }
+        }
+
+        #custom-search-input {
+          padding-left: 0px;
+          margin-left: 0px;
+          border: 0px solid white;
+          button {
+            padding-left: 12px;
+            border: none;
+          }
+          input {
+            display: none;
+          }
+        }
+        #custom-search-input:hover {
+          input {
+            display: block;
+            position: absolute;
+            z-index: 5;
+            width: 350px;
+            margin-left: 5px;
+            border: 1px solid gray;
+            box-shadow: 2px 2px 10px #333;
+            text-align: right;
+            padding-right: 10px;
+            border-radius: 5px 5px 5px 5px;
+          }
+
+        }
+      }
+      > li:first-child {
+        padding: 0px 0px;
+        margin: 0px 0px;
+      }
+    }
+  }
+}

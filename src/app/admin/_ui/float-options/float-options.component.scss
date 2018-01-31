@@ -1,0 +1,53 @@
+@import "~variables.scss";
+
+#float-options {
+  margin-right: -222px;
+  position: fixed;
+  top: 150px;
+  right: 0px;
+  z-index: 5;
+  width: 250px;
+  transition: all 0.2s ease-in;
+  background-color: white;
+
+  #ui-button {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: $sidebar-border;
+    float: left;
+    display: block;
+    background-color: rgba(255,255,255,0);
+    border-radius: 10px 0px 0px 10px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  }
+  #ui-button:hover {
+    background-color: gray;
+    cursor: pointer;
+  }
+}
+#ui-options {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  padding: 10px 10px;
+  background-color: white;
+  border: 1px solid #eee;
+  width: 100%;
+  margin-left: 28px;
+  z-index: 6;
+  position: absolute;
+  ul {
+    list-style: none;
+    padding: 5px 5px;
+    li {
+      ui-switch {
+        right: 0px;
+      }
+    }
+  }
+
+}
+
+#float-options.open {
+  margin-right: 0px;
+}

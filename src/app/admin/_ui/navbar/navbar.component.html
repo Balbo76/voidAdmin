@@ -1,0 +1,55 @@
+<nav class="navbar navbar-inverse" [class.navbar-fixed-top]="navbarFixed">
+  <div [class.container]="!containerFluid" [class.container-fluid]="containerFluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" (click)="false"><img src="assets/empty-set.png" width="18px"></a>
+      <a class="navbar-brand" (click)="false">voidAdmin</a>
+    </div>
+
+    <ul class="nav navbar-right navbar-top-links">
+
+      <li *ngIf="messages.active" class="dropdown" dropdown  >
+        <a href (click)="false" dropdownToggle class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
+          <span class="badge"> {{ messages.data.length }} </span><span class="fa fa-envelope fa-fw "></span>&nbsp;<span class="caret "></span>
+        </a>
+        <ul *dropdownMenu class="dropdown-menu dropdown-messages">
+          <li *ngFor="let item of messages.data">
+            <a routerLink="{{item.link}}">
+              <p><span class="pull-right">{{item.date | amTimeAgo }}</span><b>{{item.name}}</b><br />{{item.message}}</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li *ngIf="tasks.active" class="dropdown" dropdown  >
+        <a href (click)="false" dropdownToggle class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
+          <span class="badge"> {{ tasks.data.length }} </span><span class="fa fa-tasks fa-fw "></span>&nbsp;<span class="caret "></span>
+        </a>
+        <ul *dropdownMenu class="dropdown-menu dropdown-progress">
+          <li *ngFor="let item of tasks.data" class="progress">
+            <div class="progress-bar" [ngClass]="item.class" role="progressbar" [ngStyle]="{'width': item.completed + '%'}">
+              <span class="sr-only">{{item.completed}}% Complete</span>
+            </div>
+            <span class="progress-type">{{item.text}}</span>
+            <span class="progress-completed">{{item.completed}}%</span>
+          </li>
+          <li><a routerLink="">See All</a></li>
+        </ul>
+      </li>
+
+      <li *ngIf="notifications.active" class="dropdown" dropdown >
+        <a href (click)="false" dropdownToggle class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">
+          <span class="badge"> {{ notifications.data.length }} </span><span class="fa fa-bell fa-fw " [class.shaking]="notifications.data.length > 0"></span>&nbsp;<span class="caret "></span>
+        </a>
+
+        <ul *dropdownMenu class="dropdown-menu dropdown-notifications">
+          <li *ngFor="let item of notifications.data"><a routerLink="{{item.link}}"><span class="pull-right">{{item.date}}</span><i class="{{item.icons}}"></i>&nbsp;{{item.text}}</a></li>
+        </ul>
+      </li>
+
+    </ul>
+
+    <app-toggle-button (click)="toggleBar()" [toggled]="toggled"></app-toggle-button>
+
+  </div>
+</nav>

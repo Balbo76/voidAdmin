@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ngx-toastr/toastr";
+
+@import "~variables.scss";
+
+@media only screen and (min-width : $screen-sm-min) {
+
+  .panel, .btn-group.btn-breadcrumb, footer {
+     box-shadow: $shadow;
+  }
+  .navbar.navbar-inverse {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.575);
+  }
+
+  .panel:hover, .btn-group.btn-breadcrumb:hover, .navbar.navbar-inverse:hover, footer:hover {
+    /* box-shadow: 0 1px 8px rgba(0, 0, 0, 0.275); */
+  }
+
+}
+
+.page-header {  }
+

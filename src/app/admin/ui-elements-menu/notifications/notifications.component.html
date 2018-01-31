@@ -1,0 +1,182 @@
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Notifications</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Alert Styles
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <div class="alert alert-success">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
+          </div>
+          <div class="alert alert-info">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
+          </div>
+          <div class="alert alert-warning">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
+          </div>
+          <div class="alert alert-danger">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
+          </div>
+        </div>
+        <!-- .panel-body -->
+      </div>
+      <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-6 -->
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Dismissable Alerts
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
+          </div>
+          <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
+          </div>
+          <div class="alert alert-warning alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
+          </div>
+          <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
+          </div>
+        </div>
+        <!-- .panel-body -->
+      </div>
+      <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-6 -->
+  </div>
+  <!-- /.row -->
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Modals
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+
+          <button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>
+
+          <template #template>
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">Modal</h4>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              This is a modal.
+            </div>
+          </template>
+
+
+        </div>
+        <!-- .panel-body -->
+      </div>
+      <!-- /.panel -->
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Toast notification
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <button class="btn btn-success btn-md" (click)="clickSuccessToast()">Success Toast</button>
+
+          <button class="btn btn-danger btn-md" (click)="clickErrorToast()">Error Toast</button>
+
+          <button class="btn btn-info btn-md" (click)="clickInfoToast()">Info Toast</button>
+
+          <button class="btn btn-warning btn-md" (click)="clickAlertToast()">Warning Toast</button>
+
+        </div>
+      </div>
+
+
+    </div>
+    <!-- /.col-lg-6 -->
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Tooltips and Popovers
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <h4>Tooltip Demo</h4>
+          <div class="tooltip-demo">
+
+            <button type="button" class="btn btn-default btn-secondary" tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." placement="left">Tooltip on left</button>
+            <button type="button" class="btn btn-default btn-secondary" tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." placement="top">Tooltip on top</button>
+            <button type="button" class="btn btn-default btn-secondary" tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." placement="bottom">Tooltip on bottom</button>
+            <button type="button" class="btn btn-default btn-secondary" tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." placement="right">Tooltip on right</button>
+            <button type="button" class="btn btn-default btn-secondary" tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." placement="auto">Tooltip auto</button>
+
+          </div>
+          <br>
+          <h4>Clickable Popover Demo</h4>
+          <div >
+
+            <button type="button" class="btn btn-default btn-secondary"
+                    popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                    popoverTitle="Popover on left"
+                    placement="left">
+              Popover on left
+            </button>
+
+            <button type="button" class="btn btn-default btn-secondary"
+                    popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                    popoverTitle="Popover on top"
+                    placement="top">
+              Popover on top
+            </button>
+
+            <button type="button" class="btn btn-default btn-secondary"
+                    popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                    popoverTitle="Popover on bottom"
+                    placement="bottom">
+              Popover on bottom
+            </button>
+
+            <button type="button" class="btn btn-default btn-secondary"
+                    popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                    popoverTitle="Popover on right"
+                    placement="right">
+              Popover on right
+            </button>
+
+            <button type="button" class="btn btn-default btn-secondary"
+                    popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                    popoverTitle="Popover auto"
+                    placement="auto">
+              Popover auto
+            </button>
+
+
+          </div>
+        </div>
+        <!-- .panel-body -->
+      </div>
+      <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-6 -->
+  </div>
+  <!-- /.row -->
+
+

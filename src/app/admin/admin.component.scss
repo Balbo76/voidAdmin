@@ -1,0 +1,134 @@
+@import '~bootstrap-variables.scss';
+@import '~variables.scss';
+
+#wrapper {} /* Interagisce con le classi container e container-fluid!*/
+
+#wrapper.container {
+  border: $sidebar-border;
+}
+#sidebar-wrapper {
+  background-color: $sidebar-color;
+}
+#content-wrapper {
+  background-color: $content-background;
+}
+
+/* Nsconde la sidebar di scrool nativa del browser */
+#sidebar-wrapper {
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  #wrapper {
+    padding: 0px 0px;
+  }
+
+  /* Sidebar grande */
+  #sidebar-wrapper {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    width: $sidebar-size;
+
+  }
+  #content-wrapper {
+    margin: 0 0 0 $sidebar-size;
+    padding: $grid-gutter-width $grid-gutter-width;
+    border-left: $sidebar-border;
+    min-height: 1024px;
+    box-shadow: $shadow-inset;
+  }
+
+  #wrapper #sidebar-wrapper {
+    margin-top: $navbar-height + 2px;
+  }
+  #wrapper #content-wrapper {
+    margin-top: 0px;
+  }
+
+
+
+  #wrapper.navbar-fixed.sidebar-fixed #sidebar-wrapper {
+    margin-top: $navbar-height;
+  }
+  #wrapper.navbar-fixed.sidebar-fixed #content-wrapper {
+    margin-top: $navbar-height;
+  }
+
+  #wrapper.sidebar-fixed #sidebar-wrapper {
+    margin-top: $navbar-height + 5;
+  }
+  #wrapper.sidebar-fixed #content-wrapper {
+    margin-top: 0;
+  }
+
+
+
+  /* sidebar piccola */
+  #wrapper.sidebar-compressed #content-wrapper {
+    margin: 0 0 0 50px;
+
+  }
+  #wrapper.sidebar-compressed #sidebar-wrapper {
+    width: 50px;
+  }
+  #wrapper.navbar-fixed.sidebar-compressed #sidebar-wrapper {
+    margin-top: $navbar-height;
+  }
+  #wrapper.navbar-fixed.sidebar-compressed #content-wrapper {
+    margin-top: $navbar-height;
+  }
+
+}
+
+
+/* Sidebar Mobile*/
+@media (max-width: $screen-xs-max) {
+
+  #content-wrapper {
+    margin-top: 5px;
+  }
+  #wrapper.navbar-fixed #content-wrapper {
+    margin-top: 105px;
+  }
+  #sidebar-wrapper {
+    display: block;
+    box-sizing: border-box;
+    border-right: $sidebar-border;
+    width: $sidebar-size;
+    min-height: 100%;
+
+    position: fixed;
+    z-index: 9999;
+    top: 0px;
+    bottom: 0px;
+    margin-top: 0px;
+    background-color: $sidebar-color;
+    left: -$sidebar-size;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+  #wrapper.toggled #sidebar-wrapper { /* Apre la sidebar ",.toggled" */
+    left: 0px;
+  }
+}
+
+
+footer {
+  color: white;
+  font-weight: bold;
+  background-color: $footer-background;
+  text-align: center;
+  padding: $grid-gutter-width $grid-gutter-width;
+  margin: 0 0 0 0;
+  z-index: 2;
+}

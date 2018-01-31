@@ -1,0 +1,19 @@
+@import "bootstrap-variables";
+
+$sidebar-size: 280px;
+$sidebar-color: $body-bg;
+$sidebar-border: 1px solid $panel-default-border;
+$sidebar-submenu-title-color: #cccccc;
+$sidebar-submenu-hover-color: beige;
+
+$container-border: 1px solid #eeeeee;
+
+/* Ombre pannelli e sidebar */
+$shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+$shadow-inset: 2px 0 6px rgba(0, 0, 0, 0.175) inset;
+
+$content-background: $body-bg;
+$footer-background: darken($body-bg, 50%);
+
+
+

@@ -1,0 +1,13 @@
+<div id="float-options" class="open" [class.open]="toggled" >
+  <div id="ui-button" (click)="toggleOptions()" class="" aria-hidden="true"><i class="fa fa-sliders"></i></div>
+  <div id="ui-options">
+    <h3>UI Options</h3>
+    <ul>
+      <li><p><input type="checkbox" [checked]="navbarFixed" (change)="clickToggleNavbarFixed()" size="small" />Navbar Fixed</p></li>
+      <li><p><input type="checkbox" [checked]="containerFluid" (change)="clickToggleContainer()" size="small" />Container fluid</p></li>
+      <li><p><input type="checkbox" [checked]="sidebarFixed" (change)="clickToggleSidebarFixed()" size="small" />Sidebar Fixed</p></li>
+      <li><p><input type="checkbox" [checked]="sidebarCompressed" (change)="clickToggleCompressed()" size="small" />Sidebar compressed</p></li>
+      <li><p><input type="checkbox" [checked]="backToTop" (change)="clickToggleBackToTop()" size="small" />Back to top</p></li>
+    </ul>
+  </div>
+</div>

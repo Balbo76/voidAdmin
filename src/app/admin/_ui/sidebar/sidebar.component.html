@@ -1,0 +1,55 @@
+<div class="sidebar compressed fixed" [class.fixed]="sidebarFixed" [class.compressed]="sidebarCompressed">
+
+  <div class="sidebar-header">
+
+    <div class="user-info">
+
+      <img *ngIf="!sidebarCompressed" src="assets/avatar-linux.png" class="user-image">
+      <i *ngIf="sidebarCompressed" class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
+      <p id="username">Alessandro Balbo</p>
+
+      <div class="user-buttons">
+        <span class="btn-group">
+          <a class="btn btn-link" routerLink="/admin/profile"><i class="fa fa-user fa-fw"></i></a>
+          <a class="btn btn-link" routerLink="/admin/settings"><i class="fa fa-gear fa-fw"></i></a>
+          <a class="btn btn-link" routerLink="/"><i class="fa fa-sign-out fa-fw"></i></a>
+        </span>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <ul class="sidebar-menu ">
+
+    <li>
+      <div id="custom-search-input">
+        <div class="input-group col-md-12">
+          <input type="text" class="form-control" placeholder="Cerca" />
+          <span class="input-group-btn">
+              <button class="btn btn-info" type="button">
+                  <i class="glyphicon glyphicon-search"></i>
+              </button>
+          </span>
+        </div>
+      </div>
+    </li>
+
+    <li *ngFor="let item of menu">
+      <a *ngIf="item.link" (click)="toggleBar()" [routerLink]="item.link">
+        <i [ngClass]="item.icons"></i><span> {{ item.name }}</span>
+      </a>
+      <a *ngIf="item.submenu" (click)="item.open = toggleOpen(item.open)" href="javascript:void(0);">
+        <i [ngClass]="item.icons"></i><span> {{ item.name }}</span><i class="fa fa-arrow-left fa-fw arrow" [class.rotate]="item.open" aria-hidden="true"></i>
+
+        <ul *ngIf="item.submenu" class="sidebar-submenu" [class.open]="item.open">
+          <li class="submenu-title"><i [ngClass]="item.icons"></i><b>{{ item.name }}</b></li>
+          <li *ngFor="let subitem of item.submenu"><a (click)="toggleBar()" [routerLink]="subitem.link"> - {{ subitem.name }}</a></li>
+        </ul>
+      </a>
+
+    </li>
+
+  </ul>
+</div>
